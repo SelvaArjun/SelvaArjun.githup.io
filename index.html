@@ -1,90 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample HTML Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        nav {
-            background-color: #333;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        section {
-            padding: 20px;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selvakumar A | Azure DevOps & Monitoring Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#020617;
+  --bg-light:#f4f7f9;
+  --card:rgba(15,23,42,.85);
+  --card-light:rgba(255,255,255,.9);
+  --accent:#38bdf8;
+  --accent-bright:#64ffda;
+  --accent-glow:rgba(56,189,248,.8);
+  --text:#e5e7eb;
+  --text-light:#1f2937;
+  --muted:#94a3b8;
+  --muted-light:#64748b;
+  --glass:blur(18px);
+  --transition:.4s;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Poppins,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:background var(--transition), color var(--transition);
+  scroll-behavior:smooth;
+}
+body.light{
+  background:var(--bg-light);
+  color:var(--text-light);
+}
+body.light .glass{background:var(--card-light);}
+.container{max-width:1200px;margin:auto;padding:3rem 1.5rem;}
+.glass{
+  background:var(--card);
+  backdrop-filter:var(--glass);
+  border-radius:24px;
+  border:1px solid rgba(56,189,248,.25);
+  box-shadow:0 0 40px rgba(56,189,248,.15);
+  transition:all var(--transition);
+}
+
+/* Navbar */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1.5rem 2rem;
+  position:sticky;
+  top:0;
+  z-index:100;
+  backdrop-filter:var(--glass);
+  background:var(--card);
+}
+nav h2{color:var(--accent)}
+nav a{
+  color:var(--muted);
+  margin-left:1.2rem;
+  text-decoration:none;
+  transition:color var(--transition);
+}
+nav a:hover{color:var(--accent)}
+.theme-toggle{
+  cursor:pointer;
+  font-size:1.2rem;
+  margin-left:1rem;
+  color:var(--accent);
+}
+
+/* Hero */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:3rem;
+  padding:2rem 0;
+  align-items:center;
+}
+.hero img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 0 30px rgba(56,189,248,.4);
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+}
+.hero h1{font-size:2.8rem}
+.hero span{color:var(--accent)}
+.hero .description {
+  margin:1.5rem 0;
+  color:var(--muted);
+  line-height:1.6;
+  font-size:1.1rem;
+}
+.hero .skills-line {
+  font-size:1.2rem;
+  color:var(--muted);
+  margin-bottom:1.2rem;
+}
+#typing{
+  border-right:2px solid var(--accent);
+  padding-right:3px;
+  font-weight:600;
+  color:var(--accent);
+}
+
+/* Buttons */
+.btn{
+  display:inline-block;
+  padding:.8rem 1.6rem;
+  border-radius:30px;
+  background:var(--accent);
+  color:#020617;
+  font-weight:600;
+  text-decoration:none;
+  margin-right:1rem;
+  transition:all var(--transition);
+}
+.btn:hover{
+  transform:translateY(-6px) scale(1.05);
+  box-shadow:0 10px 30px var(--accent-glow);
+}
+.btn.outline{
+  background:none;
+  border:2px solid var(--accent);
+  color:var(--accent);
+}
+.btn.outline:hover{
+  background:var(--accent);
+  color:#020617;
+}
+
+/* Stats */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1.8rem;
+  padding:2rem;
+  margin:2rem 0;
+  border-radius:20px;
+  text-align:center;
+}
+.count{
+  font-size:3rem;
+  font-weight:800;
+  background:linear-gradient(90deg,#38bdf8,#64ffda);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* Sections */
+section{margin-top:4rem}
+section h2{
+  text-align:center;
+  margin-bottom:3rem;
+  font-size:2.4rem;
+}
+section h2 span{color:var(--accent)}
+
+/* Grid */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:2rem;
+}
+
+/* Cards */
+.card{
+  padding:2.5rem 2rem;
+  border-radius:24px;
+  text-align:center;
+  transition:all .4s;
+  background:var(--card);
+}
+.card:hover{
+  transform:translateY(-20px) scale(1.05);
+  box-shadow:0 30px 60px var(--accent-glow);
+}
+.card i{
+  font-size:3rem;
+  color:var(--accent);
+  margin-bottom:1.5rem;
+}
+.card p{color:var(--muted);line-height:1.6}
+.card ul{text-align:left;margin-top:1rem;color:var(--muted)}
+.impact{color:var(--accent);font-weight:600;margin-top:1rem}
+
+/* Footer */
+footer{
+  padding:4rem 0 2rem;
+  text-align:center;
+}
+footer h2{
+  color:var(--accent);
+  font-size:2rem;
+  margin-bottom:2rem;
+}
+.contact-links{
+  display:flex;
+  justify-content:center;
+  gap:2rem;
+  flex-wrap:wrap;
+  margin-bottom:2rem;
+}
+.contact-item{
+  display:flex;
+  align-items:center;
+  background:rgba(56,189,248,.15);
+  border-radius:50px;
+  padding:.8rem 2rem;
+  color:var(--accent);
+  text-decoration:none;
+  transition:.3s;
+}
+.contact-item:hover{
+  background:var(--accent);
+  color:#020617;
+  transform:scale(1.05);
+}
+.contact-item i{margin-right:.8rem}
+.copyright{color:var(--muted);font-size:.9rem}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Welcome to the world of mark antony mameee</h1>
-    </header>
+<div class="container glass">
 
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<nav>
+  <h2>Portfolio</h2>
+  <div>
+    <a href="#about">About</a>
+    <a href="#services">Expertise</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <i class="fas fa-sun theme-toggle" id="toggle"></i>
+  </div>
+</nav>
 
-    <section id="home">
-        <h2>Home</h2>
-        <p>This is the home section of the website.</p>
-    </section>
+<div class="hero" id="about">
+  <img src="https://i.imgur.com/8Km9tLL.png" alt="DevOps Engineer">
+  <div>
+    <p>Hello, I’m</p>
+    <h1><span>Selvakumar A</span></h1>
+    <h3>Azure DevOps & Monitoring Engineer</h3>
+    <p class="skills-line">Skills: <span id="typing"></span></p>
+    <p class="description">
+      Passionate about building reliable cloud-native monitoring and DevOps platforms.
+      Experienced in Prometheus, Grafana, Azure AKS, Kubernetes, CI/CD pipelines,
+      and production observability systems.
+    </p>
+    <a class="btn" href="#">Download Resume</a>
+    <a class="btn outline" href="#contact">Contact Me</a>
+  </div>
+</div>
 
-    <section id="about">
-        <h2>About</h2>
-        <p>This is the about section where you can learn more about the website.</p>
-    </section>
+<div class="stats">
+  <div>
+    <span class="count" data-target="1.5">0</span>
+    <p>Years Of Experience</p>
+  </div>
+  <div>
+    <span class="count" data-target="100">0</span>
+    <p>Dashboards Created</p>
+  </div>
+  <div>
+    <span class="count" data-target="25">0</span>
+    <p>Production Systems</p>
+  </div>
+  <div>
+    <span class="count" data-target="99.99">0</span>
+    <p>Uptime Focus (%)</p>
+  </div>
+</div>
 
-    <section id="services">
-        <h2>Services</h2>
-        <p>This section describes the services offered.</p>
-    </section>
+</div>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>If you'd like to reach out, visit this section.</p>
-    </section>
+<section id="services" class="container">
+<h2>My <span>Expertise</span></h2>
+<div class="grid">
+  <div class="card glass">
+    <i class="fas fa-chart-line"></i>
+    <h3>Prometheus</h3>
+    <p>Node exporters, kube-state-metrics, PromQL tuning & alert rules.</p>
+  </div>
 
-    <footer>
-        <p>&copy; 2026 My Website</p>
-    </footer>
+  <div class="card glass">
+    <i class="fas fa-tachometer-alt"></i>
+    <h3>Grafana</h3>
+    <p>Production dashboards, SLA/SLO metrics & alerting.</p>
+  </div>
+
+  <div class="card glass">
+    <i class="fas fa-cloud"></i>
+    <h3>Azure & AWS</h3>
+    <p>AKS, EC2, CloudWatch, Azure Monitor & IAM.</p>
+  </div>
+
+  <div class="card glass">
+    <i class="fas fa-code-branch"></i>
+    <h3>CI/CD</h3>
+    <p>Jenkins, GitHub Actions, ArgoCD & Helm deployments.</p>
+  </div>
+</div>
+</section>
+
+<section id="projects" class="container">
+<h2>Featured <span>Projects</span></h2>
+<div class="grid">
+  <div class="card glass">
+    <h3>Smart City Monitoring Platform</h3>
+    <p>End-to-end monitoring for Smart City & Emergency Response systems.</p>
+    <ul>
+      <li>Prometheus + Node Exporters</li>
+      <li>Grafana dashboards for infra & apps</li>
+      <li>Alertmanager email integration</li>
+      <li>Kubernetes production monitoring</li>
+    </ul>
+    <p class="impact">Impact: 99.99% uptime visibility • Reduced MTTR</p>
+  </div>
+</div>
+</section>
+
+<footer id="contact">
+  <h2>Get in Touch</h2>
+  <div class="contact-links">
+    <a href="tel:+919786820914" class="contact-item">
+      <i class="fas fa-phone"></i> +91 9786820914
+    </a>
+    <a href="mailto:selvaarjun1011@gmail.com" class="contact-item">
+      <i class="fas fa-envelope"></i> selvaarjun1011@gmail.com
+    </a>
+    <a href="#" class="contact-item">
+      <i class="fab fa-linkedin-in"></i> LinkedIn Profile
+    </a>
+  </div>
+  <div class="copyright">
+    © 2026 Selvakumar A · Azure DevOps Engineer
+  </div>
+</footer>
+
+<script>
+document.getElementById("toggle").onclick=()=>document.body.classList.toggle("light");
+
+/* Animated Counter */
+const counters=document.querySelectorAll(".count");
+counters.forEach(counter=>{
+  const target=parseFloat(counter.dataset.target);
+  let current=0;
+  const speed=80;
+  const increment=target/speed;
+  function update(){
+    current+=increment;
+    if(current<target){
+      counter.textContent=target%1!==0?current.toFixed(2):Math.floor(current);
+      requestAnimationFrame(update);
+    }else{
+      counter.textContent=target%1?target.toFixed(2):target+"+";
+    }
+  }
+  update();
+});
+
+/* Typing Effect */
+const skills=["Prometheus","Grafana","Azure AKS","AWS","Jenkins","ArgoCD","Kubernetes"];
+let i=0,j=0;
+const el=document.getElementById("typing");
+function type(){
+ if(j<skills[i].length){el.textContent+=skills[i][j++];setTimeout(type,120);}
+ else setTimeout(erase,1500);
+}
+function erase(){
+ if(j>0){el.textContent=skills[i].substring(0,--j);setTimeout(erase,60);}
+ else{i=(i+1)%skills.length;setTimeout(type,400);}
+}
+type();
+</script>
 
 </body>
 </html>
